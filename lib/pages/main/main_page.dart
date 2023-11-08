@@ -23,7 +23,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     context.read<UserBloc>().add(LoadUserData());
-    print("dataLoaded");
     super.initState();
   }
 

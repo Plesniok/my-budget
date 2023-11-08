@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_budget/blocs/user_bloc/user_bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart' hide EmailAuthProvider;
-import 'package:my_budget/main.dart';
 import 'package:my_budget/pages/main/main_page.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class LoginPage extends StatefulWidget {
   static const routeName = "/users-page";
@@ -48,6 +48,33 @@ class _LoginPageState extends State<LoginPage>
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
               return SignInScreen(
+                headerBuilder: (context, constraints, shrinkOffset) {
+                  return Container(
+                    padding: const EdgeInsets.only(top: 60),
+                    child: Image.asset(
+                      'lib/static_files/app_full_logo.png',
+                      scale: 1.4,
+                      height: 300,
+                      width: 300,
+                      fit: BoxFit.none,
+                    ),
+                  );
+                },
+                sideBuilder: (context, shrinkOffset) {
+                  return Container(
+                    padding: const EdgeInsets.only(top: 60),
+                    child: Image.asset(
+                      'lib/static_files/app_full_logo.png',
+                      scale: 1.4,
+                      height: 300,
+                      width: 300,
+                      fit: BoxFit.none,
+                    ),
+                  );
+                },
+                subtitleBuilder: (context, action) {
+                  return Container();
+                },
                 providers: [
                   EmailAuthProvider(), // new
                 ],
